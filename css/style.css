@@ -3,3 +3,22 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    text-align: center;
+    margin: 50px auto;
+}
+
+h1 {
+    margin-bottom: 50px;
+}
+
+.numbers {
+    color: red;
+    font-weight: bold;
+    font-size: 2em;
+}

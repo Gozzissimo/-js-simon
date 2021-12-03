@@ -16,28 +16,33 @@
 
 // Array
 const memoryArray = generateNumbers(1, 100, 5);
-// console.log(memoryArray);
 
 // facciamo apparire i numeri in pagina
-let NumbersToMemory = document.getElementById('memory-numbers');
-NumbersToMemory.innerHTML = memoryArray;
+let numbersToMemory = document.getElementById('memory-numbers');
+numbersToMemory.innerHTML = memoryArray;
 
 // 2. facciamo sparire i numeri dalla pagina dopo 3 secondi
 setTimeout(() => {
-    NumbersToMemory.innerHTML = '';
+    numbersToMemory.innerHTML = '';
 }, 3000);
 
-// 3.creare una funzione temporale che va da 0 a 30 secondi. Quindi dopo 32 secondi dal caricamento pagina vengono chiesti i prompt
-setTimeout(function() {
-    NumbersToMemory.innerHTML = '';
 
+// 3.Quindi dopo 33 secondi dal caricamento pagina vengono chiesti i prompt
+setTimeout(function () {
     let userArray = memoryPrompts(5);
-    console.log(userArray);
     
-}, 32000);
+    // 4. verificare quanti numeri sono corretti e dare la risposta in pagina
+    let count = 0
 
+    for (let i = 0; i < memoryArray.length; i++) {
 
+        if (memoryArray.includes(userArray[i])) {
+            count += 1
+        }
 
+    }
+    numbersToMemory.innerHTML ='Il tuo punteggio è di ' + count;
+}, 33000);
 
 
 // FUNZIONI
