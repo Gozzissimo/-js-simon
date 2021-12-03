@@ -23,10 +23,14 @@ let NumbersToMemory = document.getElementById('memory-numbers');
 NumbersToMemory.innerHTML = memoryArray;
 
 // 2.creare una funzione temporale che va da 0 a 30 secondi.
-// setTimeout(function() {
-//     NumbersToMemory.innerHTML = '';
-//     callingPrompts();
-// }, 30000);
+setTimeout(function() {
+    NumbersToMemory.innerHTML = '';
+
+    let userArray = memoryPrompts(5);
+    console.log(userArray);
+    
+}, 2000);
+
 
 
 
@@ -70,10 +74,15 @@ function memoryPrompts(arrayLength) {
 
         let number = parseInt(prompt('Inserisci un numero tra quelli che hai visto'));
 
-        if (!promptNumbers.includes(number)) {
-            promptNumbers.push(number);
-        } else {
+        if (promptNumbers.includes(number)) {
             alert('Attenzione! questo numero è gia stato inserito');
+            
+        } else if (isNaN(number) || number <= 0) {
+            alert('Attenzione! questo non è un numero');
+            
+        } else {
+            promptNumbers.push(number);
+            
         }
     
     }
