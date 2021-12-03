@@ -11,3 +11,44 @@
 // * Pensate prima in italiano.
 // * Dividete in piccoli problemi la consegna.
 // * Individuate gli elementi di cui avete bisogno per realizzare il programma.
+
+// 1. generare un array con 5 numeri casuali (facciamo da uno a cento per es.) e metterli in pagina
+
+// Array
+const memoryArray = generateNumbers(1, 100, 5)
+// console.log(memoryArray);
+
+// facciamo apparire i numeri in pagina
+document.getElementById('memory-numbers').innerHTML = memoryArray
+
+// 2.creare una funzione temporale che va da 0 a 30 secondi.
+setTimeout(() => {
+    
+}, 30000);
+
+
+
+
+// FUNZIONI
+
+/**
+ * 
+ * @param {*} min Numero Minimo
+ * @param {*} max Numero Massimo
+ * @param {*} arrayLength Quanti Numeri vuoi generare
+ * @returns Array di numeri casuali
+ */
+
+function generateNumbers(min, max, arrayLength) {
+    const numbers = []
+
+    while (numbers.length < arrayLength) {
+
+        let number = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        if (!numbers.includes(number)) {
+            numbers.push(number);
+        }
+    }
+    return numbers;
+}
