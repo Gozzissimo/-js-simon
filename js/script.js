@@ -22,14 +22,19 @@ const memoryArray = generateNumbers(1, 100, 5);
 let NumbersToMemory = document.getElementById('memory-numbers');
 NumbersToMemory.innerHTML = memoryArray;
 
-// 2.creare una funzione temporale che va da 0 a 30 secondi.
+// 2. facciamo sparire i numeri dalla pagina dopo 3 secondi
+setTimeout(() => {
+    NumbersToMemory.innerHTML = '';
+}, 3000);
+
+// 3.creare una funzione temporale che va da 0 a 30 secondi. Quindi dopo 32 secondi dal caricamento pagina vengono chiesti i prompt
 setTimeout(function() {
     NumbersToMemory.innerHTML = '';
 
     let userArray = memoryPrompts(5);
     console.log(userArray);
     
-}, 2000);
+}, 32000);
 
 
 
